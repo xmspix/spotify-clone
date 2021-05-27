@@ -7,7 +7,7 @@
     "start": "ts-node-dev src/server.ts"
   },
   "keywords": [],
-  "author": "",
+  "author": "Mark Stoler",
   "license": "ISC",
   "dependencies": {
     "@types/body-parser": "^1.19.0",
