@@ -1,0 +1,9 @@
+@mixin flex($direction, $flex: null) {
+  position: relative;
+  display: flex;
+  flex-direction: $direction;
+  //   flex-direction: column;
+  @if ($flex) {
+    flex: $flex;
+  }
+}

@@ -1,0 +1,19 @@
+.search {
+  position: relative;
+
+  input {
+    border: 1px solid darkgray;
+    // padding: 5px;
+    padding: 5px 0 5px 22px;
+
+    &::placeholder {
+      color: #000;
+      // padding-left: 20px;
+    }
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+  }
+}

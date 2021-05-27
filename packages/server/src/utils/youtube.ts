@@ -6,6 +6,8 @@ import ytsr from "ytsr";
 
 import querystring from "querystring";
 
+import fs from "fs";
+
 const api = createApiClient();
 
 export const getPlaylist = async (search_query: string) => {
@@ -26,7 +28,9 @@ export const getInfo = async (id: string) => {
   // return data.formats.filter((itm: any) => itm.codecs === "avc1.42001E")[0];
   // return data.formats.filter((itm: any) => itm.codecs === "mp4a.40.2")[0];
   // return data.formats.filter((itm: any) => itm.hasVideo === false && itm.container === "mp4")[0];
-  return data.formats.filter((itm: any) => itm.hasVideo === true && itm.hasAudio === true)[0];
+  return data.formats.filter(
+    (itm: any) => itm.hasVideo === true && itm.hasAudio === true
+  )[0];
 };
 
 // MY
@@ -39,8 +43,8 @@ export const getPlaylists = async (search_query: string) => {
 
   if (data.contents) {
     let contents =
-      data.contents.twoColumnSearchResultsRenderer.primaryContents.sectionListRenderer.contents[0]
-        .itemSectionRenderer.contents;
+      data.contents.twoColumnSearchResultsRenderer.primaryContents
+        .sectionListRenderer.contents[0].itemSectionRenderer.contents;
     contents = contents.filter((e: any) => e.playlistRenderer);
 
     return contents.map((playlist: any) => {
@@ -75,9 +79,12 @@ export const getPlaylistByID = async (playlist: string, id: string) => {
 
   const data = crawl(htmlContent);
 
-  let contents = data.contents.twoColumnWatchNextResults.playlist.playlist.contents.filter(
-    (e: any) => e.playlistPanelVideoRenderer && !e.playlistPanelVideoRenderer.unplayableText
-  );
+  let contents =
+    data.contents.twoColumnWatchNextResults.playlist.playlist.contents.filter(
+      (e: any) =>
+        e.playlistPanelVideoRenderer &&
+        !e.playlistPanelVideoRenderer.unplayableText
+    );
 
   // const results = data.results.results.contents;
 
@@ -94,16 +101,12 @@ export const getPlaylistByID = async (playlist: string, id: string) => {
     playlist = playlist.playlistPanelVideoRenderer;
     const _newData = {
       id: playlist.videoId,
-      title: playlist.title.simpleText,
-      // title: changeText(playlist.title.simpleText),
-      duration: playlist.lengthText.simpleText,
+      title: playlist.title.simpleText ? playlist.title.simpleText : "",
+      duration: playlist.lengthText ? playlist.lengthText.simpleText : "",
       artwork: playlist.thumbnail.thumbnails[0].url.split("?")[0],
       artist: playlist.longBylineText.runs[0].text,
     };
-    // return { ...playlist, _newData };
-    // return { playlistData: playlistData, playlist: _newData };
     return _newData;
-    // return playlist;
   });
 
   return _data;

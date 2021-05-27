@@ -1,0 +1,53 @@
+@import "../../scss/main";
+
+.header {
+  @include flex(row);
+  justify-content: space-between;
+  padding: 10px;
+  color: azure;
+  align-items: center;
+  position: sticky;
+  position: -webkit-sticky;
+  width: 100%;
+  top: 0;
+  z-index: 9999;
+
+  &__container {
+    display: flex;
+
+    &__profile {
+      margin-right: 30px;
+      display: flex;
+      align-items: center;
+      height: fit-content;
+
+      button {
+        margin-right: 10px;
+      }
+
+      &__image {
+        width: 30px;
+        height: 30px;
+        margin-right: 10px;
+        border-radius: 50%;
+        -webkit-border-radius: 50%;
+        -moz-border-radius: 50%;
+        -ms-border-radius: 50%;
+        -o-border-radius: 50%;
+      }
+    }
+  }
+}
+
+.mobile-header {
+  @include flex(row);
+  justify-content: space-between;
+  padding: 10px;
+  color: azure;
+  align-items: center;
+  position: sticky;
+  position: -webkit-sticky;
+  // width: 100%;
+  top: 0;
+  z-index: 9999;
+}

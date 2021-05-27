@@ -1,0 +1,50 @@
+button {
+  cursor: pointer;
+
+  &:hover {
+    border: 1px solid #fff;
+    transform: scale(1.1);
+  }
+}
+
+.btn-search {
+  top: 3px;
+  color: #000;
+  background: none;
+  border: none;
+  position: absolute;
+  transform: scale(0.8);
+  -webkit-transform: scale(0.8);
+  -moz-transform: scale(0.8);
+  -ms-transform: scale(0.8);
+  -o-transform: scale(0.8);
+}
+
+.btn-upgrade {
+  background-color: #232323;
+  border: 1px solid #dfdfdf;
+  color: #dfdfdf;
+  width: 100px;
+  letter-spacing: 2px;
+}
+
+.btn-play {
+  background-color: #00c458;
+  border: 1px solid #000;
+  color: #fff;
+  font-weight: 800;
+  width: 100px;
+  height: 30px;
+}
+
+.btn {
+  padding: 5px;
+  text-transform: uppercase;
+  font-size: 0.7em;
+
+  border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+}

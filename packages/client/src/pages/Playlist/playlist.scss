@@ -1,0 +1,59 @@
+@import "../../scss/abstracts/variables";
+
+.playlist__header {
+  display: flex;
+
+  &__cover {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+  }
+
+  &__container {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.playlist {
+  // padding: 0 20px;
+  padding: 80px 0 90px;
+
+  // height: calc(100vh - 100px);
+  height: 84vh;
+
+  table {
+    width: -webkit-fill-available;
+
+    border-collapse: collapse;
+    tr {
+      border-bottom: 1px solid #3f3f3f;
+
+      &:hover {
+        background: #2d2d2d;
+        cursor: pointer;
+      }
+    }
+    th {
+      text-align: start;
+    }
+
+    td,
+    th {
+      padding: 10px;
+      font-size: 13px;
+      color: #c3c3c3;
+    }
+
+    .active {
+      background: $main_background;
+    }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .playlist__header {
+    margin-top: 80px;
+  }
+}

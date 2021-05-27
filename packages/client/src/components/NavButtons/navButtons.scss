@@ -1,0 +1,10 @@
+.nav-buttons {
+  &__back,
+  &__forward {
+    padding: 10px;
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+}

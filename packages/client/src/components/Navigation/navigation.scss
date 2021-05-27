@@ -1,0 +1,61 @@
+@import "../../scss/abstracts/variables";
+
+.navigation {
+  display: flex;
+  flex-direction: column;
+  padding: 14px 0;
+
+  a {
+    text-decoration: none;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+
+    &:visited,
+    &:active {
+      color: #fff;
+    }
+  }
+
+  span {
+    padding: 10px 10px;
+    font-size: 13px;
+    font-weight: 700;
+  }
+
+  .active {
+    border-left: 4px solid #00e364;
+    padding-left: 16px;
+    display: flex;
+    color: #fff;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .navigation {
+    background: $main_background;
+    flex-direction: row;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+
+    a {
+      flex-direction: column;
+      //   border-left: unset;
+      //   padding-left: unset;
+      margin: 0;
+      padding: 0;
+      flex: auto;
+    }
+
+    .active {
+      border-left: unset;
+      padding-left: unset;
+      margin: 0;
+      padding: 0;
+      // display: flex;
+      // color: #fff;
+    }
+  }
+}
