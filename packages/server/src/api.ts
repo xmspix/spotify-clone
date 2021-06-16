@@ -13,12 +13,12 @@ export const createApiClient = (): ApiClient => {
           `https://www.youtube.com/results?search_query=${query}&sp=EgIQAw==`
         )
         .then((res) => res.data)
-        .catch((error) => console.log(error)),
+        .catch((error) => ({error:true, msg:error.msg})),
 
     getPlaylist: (video_id: string, playlist: string) =>
       axios
         .get(`https://www.youtube.com/watch?v=${video_id}&list=${playlist}`)
         .then((res) => res.data)
-        .catch((error) => console.log(error)),
+        .catch((error) => ({error:true, msg:error.msg})),
   };
 };
