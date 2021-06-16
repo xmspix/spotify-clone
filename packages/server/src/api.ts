@@ -10,7 +10,7 @@ export const createApiClient = (): ApiClient => {
     getSearch: (query: string) =>
       axios
         .get(
-          `https://www.youtube.com/results?search_query=${query}+music&sp=EgIQAw==`
+          `https://www.youtube.com/results?search_query=${query}&sp=EgIQAw==`
         )
         .then((res) => res.data)
         .catch((error) => console.log(error)),

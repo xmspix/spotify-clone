@@ -26,7 +26,7 @@ app.get("/api/getAudio/:id", async (req, res) => {
 });
 
 app.get("/api/search/:query", async (req, res) => {
-  const search = decodeURI(req.params.query);
+  const search = decodeURI(req.params.query+"official audio");
   const playlists = await getPlaylists(search);
   res.send(playlists);
 });
