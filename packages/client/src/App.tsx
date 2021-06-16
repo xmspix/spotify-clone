@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, HashRouter } from "react-router-dom";
 import { isMobile } from "./utils/helper";
 
 import LeftSidebar from "./components/LeftSidebar";
@@ -21,7 +21,7 @@ const App: React.FunctionComponent<AppState> = () => {
   const { state, dispatch } = React.useContext(Store);
   const { playlist, mediaPlaying, playlistData, like, video } = state;
   return (
-    <Router>
+    <HashRouter>
       <section className="wrapper">
         <LeftSidebar />
         <VideoPlayer />
@@ -29,7 +29,7 @@ const App: React.FunctionComponent<AppState> = () => {
           <section className="main__container">
             <Header />
             <div className="main__container__wrapper">
-              <Switch>
+              <Switch >
                 <Route path="/playlists">
                   <Playlists />
                 </Route>
@@ -56,7 +56,7 @@ const App: React.FunctionComponent<AppState> = () => {
       </section>
       {isMobile && <Navigation />}
       <Player />
-    </Router>
+    </HashRouter>
   );
 };
 
