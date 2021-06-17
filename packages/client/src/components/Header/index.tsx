@@ -7,9 +7,6 @@ import NavButtons from "../NavButtons";
 
 import { isMobile } from "../../utils/helper";
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCog } from "@fortawesome/free-solid-svg-icons";
-
 export type HeaderState = {
   shade: number;
 };
@@ -21,7 +18,6 @@ class Header extends React.PureComponent<{}, HeaderState> {
 
   componentDidMount() {
     const { shade } = this.state;
-    // var selector: any = document.querySelector(".main__container__wrapper");
     var selector: HTMLElement | null = document.querySelector(".main__container__wrapper");
     selector?.addEventListener("scroll", (event: any) => {
       selector &&
@@ -41,7 +37,6 @@ class Header extends React.PureComponent<{}, HeaderState> {
 
     const Profile = () => (
       <div className="header__container__profile">
-        {/* <button className="btn btn-upgrade">Upgrade</button> */}
         <Link to="https://github.com/xmspix">
           <img src={profilePic} alt="Mark Stoler" className={"header__container__profile__image"} />
           <span>Mark Stoler</span>
@@ -82,11 +77,6 @@ class Header extends React.PureComponent<{}, HeaderState> {
               </div>
             </div>
             <Profile />
-            {/* <img
-              src={profilePic}
-              alt="Mark Stoler"
-              className={"header__container__profile__image"}
-            /> */}
           </header>
         </>
       );

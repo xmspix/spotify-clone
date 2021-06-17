@@ -78,7 +78,7 @@ class Player {
   }
 
   play(): void {
-    this.player!.play();
+    this.player?.play();
     // this.player!.paused ? this.player!.play() : this.player!.pause();
   }
 

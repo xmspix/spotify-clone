@@ -30,7 +30,7 @@ const api = createApiClient();
 const Playlist: React.FunctionComponent<PlaylistState> = () => {
   const history = useHistory();
   const { state, dispatch } = React.useContext(Store);
-  const { playlist, mediaPlaying, playlistData, like, video, search } = state;
+  const { playlist, mediaPlaying, like } = state;
 
   async function loadPlaylist() {
     const urlParams: any = new URLSearchParams(history.location.search);
@@ -42,14 +42,6 @@ const Playlist: React.FunctionComponent<PlaylistState> = () => {
       type: "SET_PLAYLIST",
       payload: playlistData,
     });
-
-    // player.setup({
-    //   player: document.querySelector("video"),
-    //   currentTimeElm: document.querySelector(".current"),
-    //   durationTimeElm: document.querySelector(".duration"),
-    //   sliderProgress: document.querySelector(".slider-progress"),
-    //   sliderVolume: document.querySelector(".slider-volume"),
-    // })
 
     // Add playlist
     player.add(playlistData);
@@ -67,8 +59,7 @@ const Playlist: React.FunctionComponent<PlaylistState> = () => {
     dispatch({ type: "SET_MEDIA", payload: { ...song, url: audio.url } });
     dispatch({ type: "SET_PLAYING", payload: true });
 
-    player.loadPlay();
-    // player.play();
+    player.loadPlay()
   };
 
   const handleFavorites = (e: any) => {
@@ -80,20 +71,9 @@ const Playlist: React.FunctionComponent<PlaylistState> = () => {
     }
   };
 
-  // if (search.length >= 1) {
-  //   return <Playlists />;
-  // } else {
     return (
       <>
         <VideoPlayer />
-        {/* <Container> */}
-        {/* <video controls style={{ display: !video ? "none" : "" }} playsInline>
-        <source src={mediaPlaying.url} type="video/mp4" />
-        Your browser does not support HTML5 audio.
-      </video> */}
-        {/* {playlistData && (
-          <SectionHeaderPlaylist title={playlistData.title} artwork={playlistData.artwork} />
-        )} */}
         <div className="playlist">
           <table>
             <thead>
@@ -125,10 +105,8 @@ const Playlist: React.FunctionComponent<PlaylistState> = () => {
             </tbody>
           </table>
         </div>
-        {/* </Container> */}
       </>
     );
-  // }
 };
 
 export default Playlist;
