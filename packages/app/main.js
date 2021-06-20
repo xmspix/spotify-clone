@@ -3,6 +3,21 @@ const { app, BrowserWindow } = require("electron");
 const url = require("url");
 const path = require("path");
 
+function setIcon() {
+  switch (process.platform) {
+    case "darwin":
+      return path.join(__dirname, "./appicons/icons/mac/icon.icns");
+      break;
+    case "win32":
+      return path.join(__dirname, "./appicons/icons/win/icon.ico");
+      break;
+
+    default:
+      return path.join(__dirname, "./appicons/icons/png/16x16.png");
+      break;
+  }
+}
+
 function createWindow() {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
@@ -11,17 +26,20 @@ function createWindow() {
     webPreferences: {
       preload: path.join(__dirname, "preload.js"),
     },
+    icon: setIcon(),
   });
 
   const startUrl =
     process.env.ELECTRON_START_URL ||
     url.format({
-      pathname: path.join(__dirname, "../client/build/index.html"),
+      pathname: path.join(__dirname, "./build/index.html"),
       protocol: "file:",
       slashes: true,
     });
 
+  // mainWindow.setOverlayIcon("./build/logo192.png", "Spotify Clone");
   mainWindow.loadURL(startUrl);
+  console.log(`This platform is ${process.platform}`);
 
   // Open the DevTools.
   // mainWindow.webContents.openDevTools()
